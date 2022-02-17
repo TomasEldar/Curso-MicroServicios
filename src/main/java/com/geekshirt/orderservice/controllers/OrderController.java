@@ -1,5 +1,6 @@
 package com.geekshirt.orderservice.controllers;
 
+import com.geekshirt.orderservice.DTO.OrderRequest;
 import com.geekshirt.orderservice.DTO.OrderResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
