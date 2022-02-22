@@ -1,10 +1,14 @@
 package com.geekshirt.orderservice.service;
 
+import com.geekshirt.orderservice.DTO.AccountDto;
 import com.geekshirt.orderservice.DTO.OrderRequest;
-import com.geekshirt.orderservice.DTO.OrderResponse;
+import com.geekshirt.orderservice.client.CustomerServiceClient;
 import com.geekshirt.orderservice.entities.Order;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.geekshirt.orderservice.exception.AccountNotFoundException;
+import com.geekshirt.orderservice.util.ExceptionMessagesEnum;
+import com.geekshirt.orderservice.util.OrderValidator;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,9 +16,17 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Slf4j
 public class OrderService {
 
+    @Autowired
+    private CustomerServiceClient customerServiceClient;
+
     public Order createOrder(OrderRequest orderRequest){
+        OrderValidator.validateOrder(orderRequest);
+        AccountDto account = customerServiceClient.findAccountById(orderRequest.getAccountId())
+                .orElseThrow(() -> new AccountNotFoundException(ExceptionMessagesEnum.ACCOUNT_NOT_FOUND.getValue()));
+
         Order response = new Order();
         response.setAccountId(orderRequest.getAccountId());
         response.setOrderId("9999");
