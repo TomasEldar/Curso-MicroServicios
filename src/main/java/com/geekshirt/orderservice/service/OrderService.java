@@ -30,7 +30,7 @@ public class OrderService {
         Order response = new Order();
         response.setAccountId(orderRequest.getAccountId());
         response.setOrderId("9999");
-        response.setStatus("PENDING");
+        //response.setStatus("PENDING");
         response.setTotalAmount(100.00);
         response.setTotalTax(10.00);
         response.setTransactionDate(new Date());
@@ -44,7 +44,7 @@ public class OrderService {
         Order response = new Order();
         response.setAccountId("995215");
         response.setOrderId("9999");
-        response.setStatus("PENDING");
+        //response.setStatus("PENDING");
         response.setTotalAmount(100.00);
         response.setTotalTax(10.00);
         response.setTransactionDate(new Date());
@@ -52,7 +52,7 @@ public class OrderService {
         Order response2 = new Order();
         response2.setAccountId("995225");
         response2.setOrderId("9998");
-        response2.setStatus("PENDING");
+        //response2.setStatus("PENDING");
         response2.setTotalAmount(120.00);
         response2.setTotalTax(12.00);
         response2.setTransactionDate(new Date());
@@ -67,7 +67,7 @@ public class OrderService {
         Order response = new Order();
         response.setAccountId("9999112");
         response.setOrderId(orderID);
-        response.setStatus("PENDING");
+        //response.setStatus("PENDING");
         response.setTotalAmount(100.00);
         response.setTotalTax(10.00);
         response.setTransactionDate(new Date());
