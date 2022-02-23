@@ -38,6 +38,13 @@ public class OrderController {
         return new ResponseEntity<>(entityDTOConverter.convertEntityToDTO(order), HttpStatus.OK);
     }
 
+    @ApiOperation(value = "Retrieve an order based on ID",notes = "This operation returns an order using its ID")
+    @GetMapping(value = "order/generated/{orderId}")
+    public ResponseEntity<OrderResponse> findByGeneratedId(@PathVariable Long orderId){
+        Order order = orderService.findById(orderId);
+        return new ResponseEntity<>(entityDTOConverter.convertEntityToDTO(order), HttpStatus.OK);
+    }
+
     @ApiOperation(value = "Creates an order",notes = "This operation creates a new order")
     @PostMapping(value = "order/create")
     public ResponseEntity<OrderResponse> createOrder(@RequestBody OrderRequest payload){

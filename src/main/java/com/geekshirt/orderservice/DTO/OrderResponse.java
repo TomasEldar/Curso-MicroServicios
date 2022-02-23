@@ -1,8 +1,10 @@
 package com.geekshirt.orderservice.DTO;
 
+import com.geekshirt.orderservice.entities.OrderDetail;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class OrderResponse {
@@ -13,5 +15,6 @@ public class OrderResponse {
     private Double totalAmount;
     private Double totalTax;
     private Date transactionDate;
+    List<OrderDetailResponse> details;
 
 }
