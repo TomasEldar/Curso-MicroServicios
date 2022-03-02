@@ -9,7 +9,7 @@ import lombok.Data;
 public class AccountDto {
 
     private Long id;
-    private AddressDto adress;
+    private AddressDto address;
     private CustomerDto customer;
     private CreditCardDto creditCard;
     private AccountStatus status;

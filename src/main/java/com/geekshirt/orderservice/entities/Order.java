@@ -1,5 +1,6 @@
 package com.geekshirt.orderservice.entities;
 
+import com.geekshirt.orderservice.util.OrderPaymentStatus;
 import com.geekshirt.orderservice.util.OrderStatus;
 import lombok.Data;
 
@@ -10,7 +11,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "ORDERS")
-public class Order {
+public class Order extends CommonEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +32,13 @@ public class Order {
 
     @Column(name = "TOTAL_TAX")
     private Double totalTax;
+
+    @Column(name = "TOTAL_AMOUNT_TAX")
+    private Double totalAmountTax;
+
+    @Column(name = "PAYMENT_STATUS")
+    @Enumerated(value = EnumType.STRING)
+    private OrderPaymentStatus paymentStatus;
 
     @Column(name = "TRANSACTION_DATE")
     @Temporal(TemporalType.TIMESTAMP)

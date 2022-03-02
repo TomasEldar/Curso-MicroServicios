@@ -67,7 +67,7 @@ public class CustomerServiceClient {
                 .build();
         AccountDto account = AccountDto.builder()
                 .customer(customer)
-                .adress(address)
+                .address(address)
                 .creditCard(creditCard)
                 .status(AccountStatus.ACTIVE)
                 .build();

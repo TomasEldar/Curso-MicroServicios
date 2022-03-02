@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDetail {
+public class OrderDetail extends CommonEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +30,9 @@ public class OrderDetail {
 
     @Column(name = "UPC")
     private String upc;
+
+    @Column(name = "TOTAL_AMOUNT")
+    private Double totalAmount;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Order order;
